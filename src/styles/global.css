@@ -1,0 +1,28 @@
+body {
+  background-color: #f8f9fa; /* Cinza claro */
+  color: #212529; /* Texto preto */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #002b5c; /* Azul-marinho */
+  border-color: #002b5c;
+}
+
+.btn-primary:hover {
+  background-color: #003a75;
+  border-color: #003a75;
+}
+
+.table {
+  background-color: white;
+  border-radius: 8px;
+}
