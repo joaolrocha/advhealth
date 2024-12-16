@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import CalendarComponent from '../../components/calendar/CalendarComponent';
 import DoctorsList from '../../components/doctorList/DoctorsList';
 import ScheduleList from '../../components/scheduleList/SchedulesList';
+import LayoutDashboard from '../../layouts/LayoutDashboard';
 
 type ScheduleItem = {
   time: string;
@@ -30,7 +31,7 @@ const Schedule: React.FC = () => {
   };
 
   return (
-    <Container fluid style={{ padding: '20px', backgroundColor: '#f5f5f5' }}>
+    <LayoutDashboard>
       <Row>
         {/* Sidebar com Médicos e Calendário */}
         <Col md={4}>
@@ -46,7 +47,7 @@ const Schedule: React.FC = () => {
           <ScheduleList schedules={schedules} onAdd={handleAddAppointment} />
         </Col>
       </Row>
-    </Container>
+    </LayoutDashboard>
   );
 };
 

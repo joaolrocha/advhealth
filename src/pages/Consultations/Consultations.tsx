@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import AppointmentsTable from '../../components/apointmentsTable/ApointmentsTable';
 import Filters from '../../components/filters/Filters';
 import SearchBar from '../../components/searchBar/SearchBar';
+import LayoutDashboard from '../../layouts/LayoutDashboard';
 
 type Appointment = {
   id: number;
@@ -47,12 +48,14 @@ const Consultations: React.FC = () => {
   };
 
   return (
-    <Container fluid style={{ padding: '20px', backgroundColor: '#f5f5f5' }}>
-      <h4 style={{ marginBottom: '20px', color: '#002b5c' }}>Consulta de Agendamentos</h4>
-      <SearchBar onSearch={handleSearch} />
-      <Filters onFilterChange={handleFilterChange} />
-      <AppointmentsTable data={filteredData} onEdit={handleEdit} onView={handleView} />
-    </Container>
+    <LayoutDashboard>
+      <Container fluid style={{ padding: '20px', backgroundColor: '#f5f5f5' }}>
+        <h4 style={{ marginBottom: '20px', color: '#002b5c' }}>Consulta de Agendamentos</h4>
+        <SearchBar onSearch={handleSearch} />
+        <Filters onFilterChange={handleFilterChange} />
+        <AppointmentsTable data={filteredData} onEdit={handleEdit} onView={handleView} />
+      </Container>
+    </LayoutDashboard>
   );
 };
 

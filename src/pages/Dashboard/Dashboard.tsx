@@ -4,8 +4,8 @@ import AlertsTable from '../../components/alertsTable/AlertsTable';
 import AppointmentsList from '../../components/apointments/Apointments';
 import CalendarComponent from '../../components/calendar/CalendarComponent';
 import DashboardCharts from '../../components/charts/DashboardCharts';
-import Header from '../../components/header/Header';
 import SearchBar from '../../components/searchBar/SearchBar';
+import LayoutDashboard from '../../layouts/LayoutDashboard';
 
 type Appointment = {
   time: string;
@@ -40,8 +40,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="w-100" style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
-      {/* Header */}
-      <Header />
+      <LayoutDashboard>
       <div>
         <Row className="mb-4">
           <Col>
@@ -85,6 +84,7 @@ const Dashboard: React.FC = () => {
           </Row>
         </div>
       </div>
+      </LayoutDashboard>
     </div>
   );
 };
