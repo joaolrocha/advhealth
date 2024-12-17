@@ -5,6 +5,7 @@ import DoctorsList from '../../components/doctorList/DoctorsList';
 import ScheduleList from '../../components/scheduleList/SchedulesList';
 import LayoutDashboard from '../../layouts/LayoutDashboard';
 import { doctors, mockAppointments, Doctor, Appointment } from '../../mock/appointmentsMock';
+import './schedules.css';
 
 const Schedule: React.FC = () => {
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
@@ -56,24 +57,24 @@ const Schedule: React.FC = () => {
 
   return (
     <LayoutDashboard>
-      <Container fluid style={{ display: 'flex', height: '100vh', padding: '0', gap: '1rem' }}>
+      <Container fluid className="schedule-container">
         {/* Coluna ESQUERDA: Lista de Médicos e Calendário */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '30%' }}>
-          <div style={{ flex: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px' }}>
+        <div className="schedule-left">
+          <div className="schedule-box">
             <DoctorsList
               doctors={doctors}
               onSelectDoctor={handleDoctorSelect}
               selectedDoctor={selectedDoctor}
             />
           </div>
-          <div style={{ flex: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px' }}>
+          <div className="schedule-box">
             <CalendarComponent onDateSelect={handleDateSelect} />
           </div>
         </div>
 
         {/* Coluna DIREITA: Agenda do Médico */}
-        <div style={{ flex: 1, backgroundColor: '#fff', padding: '1rem', borderRadius: '8px' }}>
-          <h5 style={{ marginBottom: '1rem', color: '#002b5c' }}>
+        <div className="schedule-right">
+          <h5 className="schedule-title">
             Agenda do Médico:{' '}
             <strong>
               {selectedDoctor
@@ -81,7 +82,7 @@ const Schedule: React.FC = () => {
                 : 'Selecione um médico'}
             </strong>
           </h5>
-          <h6 style={{ marginBottom: '1rem' }}>
+          <h6 className="schedule-title">
             Data: {selectedDate ? selectedDate : 'Selecione uma data'}
           </h6>
           <ScheduleList schedules={filteredAppointments} onAdd={handleAddAppointment} />
