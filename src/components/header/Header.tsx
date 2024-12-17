@@ -1,6 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
+
+  const user = {
+    name: 'João Luiz',
+    initials: 'JL',
+  };
+
+  const handleLogout = () => {
+    console.log('Logout realizado');
+    // Redireciona o usuário para a tela de login
+    navigate('/');
+  };
+
+
   return (
     <div
       style={{
@@ -13,16 +28,60 @@ const Header: React.FC = () => {
         padding: '0 20px',
       }}
     >
+      {/* Título */}
       <div>
-        <h5 style={{ margin: 0 }}>Bem-vindo!</h5>
+        <h5 style={{ margin: 0, fontWeight: 'bold', color: '#002b5c' }}>
+          Bem-vindo!
+        </h5>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <span>Usuário</span>
-        <img
-          src="https://via.placeholder.com/40"
-          alt="Avatar"
-          style={{ borderRadius: '50%', width: '40px', height: '40px' }}
-        />
+
+      {/* Informações do Usuário */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <span style={{ fontWeight: '500', color: '#002b5c' }}>
+          {user.name}
+        </span>
+
+        {/* Avatar com as Iniciais */}
+        <div
+          style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            backgroundColor: '#002b5c',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#fff',
+            fontWeight: 'bold',
+            fontSize: '16px',
+          }}
+        >
+          {user.initials}
+        </div>
+
+        {/* Botão de Logout */}
+        <button
+          onClick={handleLogout}
+          style={{
+            backgroundColor: '#e53e3e',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '6px 12px',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease',
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.backgroundColor = '#c53030')
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.backgroundColor = '#e53e3e')
+          }
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

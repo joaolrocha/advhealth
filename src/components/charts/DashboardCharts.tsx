@@ -12,7 +12,7 @@ const dataAvailability = [
   { name: 'Agendados', value: 70 },
 ];
 
-const COLORS = ['#002b5c', '#e0e0e0'];
+const COLORS = ['#0f172a', '#e0e0e0'];
 
 const DashboardCharts: React.FC = () => {
   return (
@@ -39,7 +39,7 @@ const DashboardCharts: React.FC = () => {
           <BarChart data={dataAvailability}>
             <XAxis dataKey="name" />
             <YAxis />
-            <Bar dataKey="value" fill="#002b5c" />
+            <Bar dataKey="value" fill="#0f172a" />
             <Tooltip />
           </BarChart>
         </ResponsiveContainer>

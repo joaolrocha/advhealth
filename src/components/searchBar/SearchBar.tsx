@@ -30,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         onClick={handleSearch}
         style={{
           padding: '10px 15px',
-          backgroundColor: '#002b5c',
+          backgroundColor: '#0f172a',
           color: '#fff',
           border: 'none',
           borderRadius: '5px',
