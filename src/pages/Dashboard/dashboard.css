@@ -16,6 +16,11 @@
   background-color: #fff;
 }
 
+.dashboard-down {
+  width: 100%;
+  display: flex;
+}
+
 /* Esquerda - Gráficos e Lembretes */
 .dashboard-left {
   flex: 2;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
-import Dashboard from './pages/Dashboard/Dashboard';
+
 import './App.css'
 import Schedule from './pages/Schedules/Schedules';
 import Consultations from './pages/Consultations/Consultations';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 const App: React.FC = () => {
   return (

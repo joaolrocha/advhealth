@@ -1,29 +1,103 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type CalendarComponentProps = {
   onDateSelect: (date: string) => void; // Função chamada ao clicar em uma data
 };
 
+const months = [
+  'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+  'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
+];
+
 const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) => {
-  const today = new Date().getDate().toString(); // Pega o dia atual como string
-  const [selectedDate, setSelectedDate] = useState<string | null>(today);
+  const today = new Date();
+  const [currentMonth, setCurrentMonth] = useState(today.getMonth());
+  const [currentYear, setCurrentYear] = useState(today.getFullYear());
+  const [selectedDate, setSelectedDate] = useState<string | null>(today.getDate().toString());
 
   // Chama a função onDateSelect com a data de hoje ao carregar o componente
   useEffect(() => {
-    onDateSelect(today);
-  }, [onDateSelect, today]);
+    const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1)
+      .toString()
+      .padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+    onDateSelect(formattedDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleDateClick = (date: string): void => {
-    setSelectedDate(date);
-    onDateSelect(date); // Notifica o componente pai
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+  const handleDateClick = (day: number): void => {
+    const formattedDate = `${currentYear}-${(currentMonth + 1)
+      .toString()
+      .padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+    setSelectedDate(day.toString());
+    onDateSelect(formattedDate); // Notifica o componente pai com a data formatada
+  };
+
+  const handlePrevMonth = () => {
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
+  };
+
+  const handleNextMonth = () => {
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
   };
 
   return (
     <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '10px' }}>
-      <h5 style={{ textAlign: 'center', marginBottom: '10px' }}>Fevereiro</h5>
+      {/* Header do Calendário */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '10px',
+        }}
+      >
+        <button
+          onClick={handlePrevMonth}
+          style={{
+            border: 'none',
+            background: '#002b5c',
+            color: '#fff',
+            padding: '5px 10px',
+            cursor: 'pointer',
+            borderRadius: '5px',
+          }}
+        >
+          &lt;
+        </button>
+        <h5 style={{ margin: 0 }}>
+          {months[currentMonth]} {currentYear}
+        </h5>
+        <button
+          onClick={handleNextMonth}
+          style={{
+            border: 'none',
+            background: '#002b5c',
+            color: '#fff',
+            padding: '5px 10px',
+            cursor: 'pointer',
+            borderRadius: '5px',
+          }}
+        >
+          &gt;
+        </button>
+      </div>
+
+      {/* Corpo do Calendário */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '5px' }}>
-        {Array.from({ length: 28 }, (_, i) => {
-          const day = (i + 1).toString();
+        {Array.from({ length: daysInMonth }, (_, i) => {
+          const day = i + 1;
           return (
             <button
               key={day}
@@ -31,11 +105,11 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) =
               style={{
                 border: 'none',
                 borderRadius: '5px',
-                backgroundColor: selectedDate === day ? '#002b5c' : '#e0e0e0',
-                color: selectedDate === day ? '#fff' : '#333',
+                backgroundColor: selectedDate === day.toString() ? '#002b5c' : '#e0e0e0',
+                color: selectedDate === day.toString() ? '#fff' : '#333',
                 padding: '8px',
                 cursor: 'pointer',
-                fontWeight: selectedDate === day ? 'bold' : 'normal',
+                fontWeight: selectedDate === day.toString() ? 'bold' : 'normal',
                 transition: 'background-color 0.3s ease',
               }}
             >
