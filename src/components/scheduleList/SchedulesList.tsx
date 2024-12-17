@@ -1,50 +1,51 @@
 import React from 'react';
-
-type ScheduleItem = {
-  time: string;
-  patient?: string; // Opcional se já estiver agendado
-};
+import { Appointment } from '../../mock/appointmentsMock';
 
 type ScheduleListProps = {
-  schedules: ScheduleItem[];
+  schedules: Appointment[];
   onAdd: (time: string) => void;
 };
 
 const ScheduleList: React.FC<ScheduleListProps> = ({ schedules, onAdd }) => {
+  const availableTimes = Array.from({ length: 10 }, (_, i) => `${7 + i}:00`);
+
   return (
-    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '10px' }}>
-      <h6 style={{ marginBottom: '10px' }}>Horários Disponíveis</h6>
-      {schedules.map((item, index) => (
-        <div
-          key={index}
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '1px solid #eee',
-            padding: '5px 0',
-          }}
-        >
-          <span style={{ fontWeight: 'bold' }}>{item.time}</span>
-          {item.patient ? (
-            <span>{item.patient}</span>
-          ) : (
-            <button
-              onClick={() => onAdd(item.time)}
-              style={{
-                backgroundColor: '#28a745',
-                color: '#fff',
-                border: 'none',
-                padding: '5px 10px',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
-            >
-              +
-            </button>
-          )}
-        </div>
-      ))}
+    <div>
+      <h6 style={{ marginBottom: '10px', textAlign: 'center' }}>Horários Disponíveis</h6>
+      {availableTimes.map((time, index) => {
+        const scheduled = schedules.find((a) => a.time === time);
+        return (
+          <div
+            key={index}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '8px 0',
+              borderBottom: '1px solid #eee',
+            }}
+          >
+            <span style={{ fontWeight: 'bold' }}>{time}</span>
+            {scheduled ? (
+              <span>{scheduled.patient} | {scheduled.modality}</span>
+            ) : (
+              <button
+                onClick={() => onAdd(time)}
+                style={{
+                  backgroundColor: '#28a745',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '5px 10px',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                }}
+              >
+                +
+              </button>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };
