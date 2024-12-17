@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 type CalendarComponentProps = {
   onDateSelect: (date: string) => void; // Função chamada ao clicar em uma data
 };
 
 const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) => {
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const today = new Date().getDate().toString(); // Pega o dia atual como string
+  const [selectedDate, setSelectedDate] = useState<string | null>(today);
+
+  // Chama a função onDateSelect com a data de hoje ao carregar o componente
+  useEffect(() => {
+    onDateSelect(today);
+  }, [onDateSelect, today]);
 
   const handleDateClick = (date: string): void => {
     setSelectedDate(date);
@@ -29,6 +35,8 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) =
                 color: selectedDate === day ? '#fff' : '#333',
                 padding: '8px',
                 cursor: 'pointer',
+                fontWeight: selectedDate === day ? 'bold' : 'normal',
+                transition: 'background-color 0.3s ease',
               }}
             >
               {day}

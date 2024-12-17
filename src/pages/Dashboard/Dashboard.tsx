@@ -6,13 +6,13 @@ import CalendarComponent from '../../components/calendar/CalendarComponent';
 import DashboardCharts from '../../components/charts/DashboardCharts';
 import SearchBar from '../../components/searchBar/SearchBar';
 import LayoutDashboard from '../../layouts/LayoutDashboard';
+import './Dashboard.css'; // Arquivo CSS separado
 
 type Appointment = {
   time: string;
   patient: string;
 };
 
-// Mock de compromissos
 const mockAppointments: Record<string, Appointment[]> = {
   '1': [
     { time: '10:00', patient: 'João Silva' },
@@ -39,49 +39,37 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="w-100" style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+    <div className="dashboard-container">
       <LayoutDashboard>
-      <div>
-        <Row className="mb-4">
-          <Col>
-            <SearchBar onSearch={handleSearch} />
-          </Col>
-        </Row>
-      </div>
-      {/* Conteúdo */}
-      <div className="w-100" style={{ padding: '20px', backgroundColor: '#fff', display: 'flex', gap: '1rem' }}>
         {/* SearchBar */}
-
-        {/* Gráficos e Calendário */}
-        <Row className="mb-4" style={{ width: '70%' }}>
-          {/* Gráficos */}
-          <Col md={8} style={{ display: 'flex', gap: '20px' }}>
-            <div style={{ flex: 1 }}>
-              <DashboardCharts />
-            </div>
-          </Col>
-          {/* Avisos/Lembretes */}
-          <Row className="mt-4">
-            <Col md={12}>
-              <h5 style={{ marginBottom: '10px', color: '#002b5c' }}>Avisos/Lembretes</h5>
-              <AlertsTable />
-            </Col>
-          </Row>
-        </Row>
-        <div style={{ display: 'flex', flexDirection: 'column', width:'30%', alignItems: 'center', gap: '1.4rem'}}>
-          {/* Calendário */}
-          <Col md={4} style={{width: '100%'}}>
-            <h6 style={{ textAlign: 'center' }}>Calendário</h6>
-            <CalendarComponent onDateSelect={handleDateSelect} />
-          </Col>
-          {/* Lista de Compromissos */}
-          <Row className="mt-4" style={{width: '100%'}}>
-            <Col md={12}>
-              <AppointmentsList appointments={appointments} selectedDate={selectedDate} />
+        <div className="dashboard-searchbar">
+          <Row>
+            <Col>
+              <SearchBar onSearch={handleSearch} />
             </Col>
           </Row>
         </div>
-      </div>
+
+        {/* Conteúdo */}
+        <div className="dashboard-content">
+          {/* Gráficos e Lembretes */}
+          <div className="dashboard-left">
+            <DashboardCharts />
+            <h5 className="alerts-title">Avisos/Lembretes</h5>
+            <AlertsTable />
+          </div>
+
+          {/* Calendário e Compromissos */}
+          <div className="dashboard-right">
+            <div className="calendar-container">
+              <h6>Calendário</h6>
+              <CalendarComponent onDateSelect={handleDateSelect} />
+            </div>
+            <div className="appointments-container">
+              <AppointmentsList appointments={appointments} selectedDate={selectedDate} />
+            </div>
+          </div>
+        </div>
       </LayoutDashboard>
     </div>
   );
