@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes, FaTachometerAlt, FaCalendarAlt, FaUserMd } from 'react-icons/fa';
+import { FaTachometerAlt, FaCalendarAlt, FaUserMd } from 'react-icons/fa';
 
 const Sidebar: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // Colapsar sidebar em telas menores
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsCollapsed(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -18,39 +32,75 @@ const Sidebar: React.FC = () => {
         color: '#fff',
         display: 'flex',
         flexDirection: 'column',
-        padding: '20px',
+        padding: isCollapsed ? '10px' : '20px',
         transition: 'width 0.3s ease',
         boxShadow: '2px 0 5px rgba(0,0,0,0.1)',
         position: 'relative',
         zIndex: 1000,
       }}
     >
-      {/* Botão de Toggle */}
+      {/* Botão de Toggle - Centralizado no Meio da Tela */}
       <div
         style={{
           position: 'absolute',
-          top: '10px',
-          right: '-20px',
-          backgroundColor: '#002b5c',
-          color: '#fff',
-          padding: '5px',
-          borderRadius: '50%',
+          top: '50%', // Centraliza verticalmente
+          right: '-10px', // Posiciona para fora da sidebar
+          transform: 'translateY(-50%)', // Ajusta para centralização
+          backgroundColor: '#fff', // Fundo branco
+          color: '#000', // Bolinhas pretas
+          width: '25px',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+          alignItems: 'center',
           cursor: 'pointer',
+          borderRadius: '8px',
           boxShadow: '0 0 5px rgba(0,0,0,0.2)',
+          transition: 'background 0.3s',
         }}
         onClick={toggleSidebar}
       >
-        {isCollapsed ? <FaBars /> : <FaTimes />}
+        {/* Três bolinhas */}
+        <div
+          style={{
+            width: '8px',
+            height: '8px',
+            backgroundColor: '#000',
+            borderRadius: '50%',
+          }}
+        />
+        <div
+          style={{
+            width: '8px',
+            height: '8px',
+            backgroundColor: '#000',
+            borderRadius: '50%',
+          }}
+        />
+        <div
+          style={{
+            width: '8px',
+            height: '8px',
+            backgroundColor: '#000',
+            borderRadius: '50%',
+          }}
+        />
       </div>
 
       {/* Logo */}
       <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h4 style={{ display: isCollapsed ? 'none' : 'block' }}>Clínica Premium</h4>
-        <FaUserMd size={30} style={{ display: isCollapsed ? 'block' : 'none', margin: '0 auto' }} />
+        {!isCollapsed ? (
+          <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff' }}>
+            Clínica Premium
+          </h4>
+        ) : (
+          <FaUserMd size={30} style={{ color: '#fff' }} />
+        )}
       </div>
 
       {/* Navegação */}
-      <nav style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         <Link
           to="/dashboard"
           style={{
@@ -65,7 +115,7 @@ const Sidebar: React.FC = () => {
           }}
         >
           <FaTachometerAlt />
-          <span style={{ display: isCollapsed ? 'none' : 'block' }}>Dashboard</span>
+          {!isCollapsed && <span>Dashboard</span>}
         </Link>
 
         <Link
@@ -82,7 +132,7 @@ const Sidebar: React.FC = () => {
           }}
         >
           <FaCalendarAlt />
-          <span style={{ display: isCollapsed ? 'none' : 'block' }}>Agendamentos</span>
+          {!isCollapsed && <span>Agendamentos</span>}
         </Link>
 
         <Link
@@ -99,7 +149,7 @@ const Sidebar: React.FC = () => {
           }}
         >
           <FaUserMd />
-          <span style={{ display: isCollapsed ? 'none' : 'block' }}>Consultas</span>
+          {!isCollapsed && <span>Consultas</span>}
         </Link>
       </nav>
     </div>
