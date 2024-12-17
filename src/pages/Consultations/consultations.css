@@ -1,0 +1,26 @@
+.consultations-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.consultations-title {
+  margin-bottom: 20px;
+  color: #002b5c;
+}
+
+.consultations-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+table th {
+  background-color: #002b5c;
+  color: #fff;
+}

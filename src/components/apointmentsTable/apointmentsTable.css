@@ -1,0 +1,60 @@
+.table-container {
+  max-height: 400px; /* Altura fixa para a tabela */
+  overflow-y: auto; /* Scroll vertical */
+  overflow-x: auto; /* Scroll horizontal */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Estilos para a tabela */
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.appointments-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #002b5c;
+  color: #fff;
+  z-index: 1;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  white-space: nowrap; /* Evita quebra de linha */
+}
+
+.appointments-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Linhas alternadas */
+}
+
+.appointments-table tbody tr:hover {
+  background-color: #e0f2ff; /* Destaque ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .table-container {
+    max-height: 300px;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointments-table th,
+  .appointments-table td {
+    font-size: 10px;
+    padding: 4px;
+  }
+}

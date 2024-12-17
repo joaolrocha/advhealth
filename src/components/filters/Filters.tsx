@@ -5,7 +5,7 @@ type FiltersProps = {
 };
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
-  const filters = ['Todos', 'Agendados', 'Cancelados', 'Confirmados'];
+  const filters = ['Todos', 'Agendado', 'Cancelado', 'Confirmado']; // Corrigido os valores para bater com o mock
 
   return (
     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginBottom: '10px' }}>
@@ -19,7 +19,11 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
             borderRadius: '5px',
             backgroundColor: '#fff',
             cursor: 'pointer',
+            color: 'black',
+            transition: 'background-color 0.3s ease',
           }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#002b5c')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#fff')}
         >
           {filter}
         </button>
