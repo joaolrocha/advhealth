@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import CalendarComponent from '../../components/calendar/CalendarComponent';
 import DoctorsList from '../../components/doctorList/DoctorsList';
 import ScheduleList from '../../components/scheduleList/SchedulesList';
@@ -32,21 +32,50 @@ const Schedule: React.FC = () => {
 
   return (
     <LayoutDashboard>
-      <Row>
-        {/* Sidebar com Médicos e Calendário */}
-        <Col md={4}>
-          <DoctorsList onSelectDoctor={(doctor) => setSelectedDoctor(doctor.name)} />
-          <CalendarComponent onDateSelect={(date) => console.log('Data selecionada:', date)} />
-        </Col>
+      <Container fluid style={{ display: 'flex', height: '100vh', padding: '0', gap: '1rem' }}>
+        {/* Coluna ESQUERDA: Lista de Médicos e Calendário */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            width: '30%',
+            backgroundColor: '#f8f9fa',
+            padding: '1rem',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          }}
+        >
+          {/* Lista de Médicos */}
+          <div style={{ flex: 1, overflowY: 'auto', padding: '10px', backgroundColor: '#fff', borderRadius: '8px' }}>
+            <DoctorsList onSelectDoctor={(doctor) => setSelectedDoctor(doctor.name)} />
+          </div>
 
-        {/* Horários Disponíveis */}
-        <Col md={8}>
-          <h5>
+          {/* Calendário */}
+          <div style={{ flex: 1, overflowY: 'auto', padding: '10px', backgroundColor: '#fff', borderRadius: '8px' }}>
+            <CalendarComponent onDateSelect={(date) => console.log('Data selecionada:', date)} />
+          </div>
+        </div>
+
+        {/* Coluna DIREITA: Agenda do Médico */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+            backgroundColor: '#fff',
+            borderRadius: '8px',
+            padding: '1rem',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            overflowY: 'auto',
+          }}
+        >
+          <h5 style={{ marginBottom: '1rem', color: '#002b5c' }}>
             Agenda do Médico: <strong>{selectedDoctor || 'Selecione um médico'}</strong>
           </h5>
           <ScheduleList schedules={schedules} onAdd={handleAddAppointment} />
-        </Col>
-      </Row>
+        </div>
+      </Container>
     </LayoutDashboard>
   );
 };

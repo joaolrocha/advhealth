@@ -49,16 +49,14 @@ const Dashboard: React.FC = () => {
         </Row>
       </div>
       {/* Conteúdo */}
-      <div className="w-100" style={{ padding: '20px', backgroundColor: '#fff', display: 'flex' }}>
+      <div className="w-100" style={{ padding: '20px', backgroundColor: '#fff', display: 'flex', gap: '1rem' }}>
         {/* SearchBar */}
 
         {/* Gráficos e Calendário */}
         <Row className="mb-4" style={{ width: '70%' }}>
           {/* Gráficos */}
           <Col md={8} style={{ display: 'flex', gap: '20px' }}>
-            {/* Gráfico 1 */}
             <div style={{ flex: 1 }}>
-              {/* <h6 style={{ textAlign: 'center' }}>Ganhos por Consulta</h6> */}
               <DashboardCharts />
             </div>
           </Col>
@@ -70,14 +68,14 @@ const Dashboard: React.FC = () => {
             </Col>
           </Row>
         </Row>
-        <div style={{ display: 'flex', flexDirection: 'column', width:'30%', alignItems: 'center'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', width:'30%', alignItems: 'center', gap: '1.4rem'}}>
           {/* Calendário */}
-          <Col md={4}>
+          <Col md={4} style={{width: '100%'}}>
             <h6 style={{ textAlign: 'center' }}>Calendário</h6>
             <CalendarComponent onDateSelect={handleDateSelect} />
           </Col>
           {/* Lista de Compromissos */}
-          <Row className="mt-4">
+          <Row className="mt-4" style={{width: '100%'}}>
             <Col md={12}>
               <AppointmentsList appointments={appointments} selectedDate={selectedDate} />
             </Col>

@@ -16,7 +16,7 @@ const COLORS = ['#002b5c', '#e0e0e0'];
 
 const DashboardCharts: React.FC = () => {
   return (
-    <div style={{ display: 'flex', gap: '20px', justifyContent: 'space-between', marginTop: '20px' }}>
+    <div style={{ display: 'flex', gap: '20px', justifyContent: 'space-between'}}>
       {/* Gráfico de Pizza - Ganhos por Consulta */}
       <div style={{ width: '30%', textAlign: 'center' }}>
         <h6>Ganhos por Consulta</h6>

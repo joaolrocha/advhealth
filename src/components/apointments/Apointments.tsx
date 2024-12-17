@@ -15,7 +15,7 @@ type AppointmentsListProps = {
 // Componente funcional com tipagem correta
 const AppointmentsList: React.FC<AppointmentsListProps> = ({ appointments, selectedDate }) => {
   return (
-    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '10px' }}>
+    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '10px', width: '100%' }}>
       <h5 style={{ textAlign: 'center', marginBottom: '10px' }}>
         Compromissos - {selectedDate ? `Dia ${selectedDate}` : 'Selecione uma data'}
       </h5>
