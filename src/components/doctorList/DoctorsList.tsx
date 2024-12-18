@@ -21,7 +21,7 @@ const DoctorsList: React.FC<DoctorsListProps> = ({ doctors, onSelectDoctor, sele
             marginBottom: '8px',
             borderRadius: '8px',
             cursor: 'pointer',
-            backgroundColor: selectedDoctor?.id === doctor.id ? '#002b5c' : '#f8f9fa',
+            backgroundColor: selectedDoctor?.id === doctor.id ? '#1E293B' : '#f8f9fa',
             color: selectedDoctor?.id === doctor.id ? '#fff' : '#333',
             transition: 'background-color 0.3s ease',
           }}
