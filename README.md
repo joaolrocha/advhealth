@@ -1,4 +1,4 @@
-# 🏥 Clínica Premium - Sistema de Agendamentos e Consultas
+# Clínica Premium - Sistema de Agendamentos e Consultas
 
 **Sistema completo para gerenciamento de agendas médicas, consultas e alertas.** Este projeto foi desenvolvido com foco em responsividade, clean code e arquitetura organizada, proporcionando uma experiência intuitiva e moderna ao usuário.
 
