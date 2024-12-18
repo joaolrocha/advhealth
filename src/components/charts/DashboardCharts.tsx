@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { mockAppointments } from '../../mock/appointmentsMock';
+import './dashboardCharts.css';
 
 const COLORS = ['#0f172a', '#10b981', '#eab308'];
 
@@ -50,28 +51,10 @@ const DashboardCharts: React.FC = () => {
   const { dataEarnings, dataAvailability } = useMemo(calculateChartData, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '20px',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        marginTop: '1rem',
-      }}
-    >
+    <div className="dashboard-charts-container">
       {/* Gráfico de Pizza - Ganhos por Modalidade */}
-      <div
-        style={{
-          flex: '1 1 45%',
-          backgroundColor: '#fff',
-          borderRadius: '8px',
-          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-          padding: '15px',
-          textAlign: 'center',
-          minWidth: '300px',
-        }}
-      >
-        <h6 style={{ color: '#333', marginBottom: '10px' }}>Ganhos por Modalidade</h6>
+      <div className="chart-box">
+        <h6 className="chart-title">Ganhos por Modalidade</h6>
         <ResponsiveContainer width="100%" height={250}>
           <PieChart>
             <Pie data={dataEarnings} dataKey="value" outerRadius={80} label>
@@ -85,18 +68,8 @@ const DashboardCharts: React.FC = () => {
       </div>
 
       {/* Gráfico de Barras - Disponibilidade */}
-      <div
-        style={{
-          flex: '1 1 45%',
-          backgroundColor: '#fff',
-          borderRadius: '8px',
-          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-          padding: '15px',
-          textAlign: 'center',
-          minWidth: '300px',
-        }}
-      >
-        <h6 style={{ color: '#333', marginBottom: '10px' }}>Status dos Agendamentos</h6>
+      <div className="chart-box">
+        <h6 className="chart-title">Status dos Agendamentos</h6>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={dataAvailability} barCategoryGap="40%">
             <XAxis dataKey="name" stroke="#333" />
@@ -105,10 +78,10 @@ const DashboardCharts: React.FC = () => {
               dataKey="value"
               fill="#10b981"
               radius={[4, 4, 0, 0]}
-              barSize={40} // Define a largura das barras
-              background={{ fill: 'transparent' }} // Remove o fundo cinza
+              barSize={40}
+              background={{ fill: 'transparent' }}
             />
-            <Tooltip cursor={{ fill: 'transparent' }} /> {/* Remove o cursor de hover */}
+            <Tooltip cursor={{ fill: 'transparent' }} />
           </BarChart>
         </ResponsiveContainer>
       </div>

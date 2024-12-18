@@ -36,10 +36,11 @@ const AppointmentsList: React.FC<AppointmentsListProps> = ({ appointments, selec
       style={{
         border: '1px solid #ddd',
         borderRadius: '8px',
-        padding: '20px',
         backgroundColor: '#fff',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
         width: '100%',
+        maxHeight: '76%',
+        overflow: 'auto'
       }}
     >
       <h5
