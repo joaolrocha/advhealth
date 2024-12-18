@@ -50,7 +50,6 @@ Existe uma **tela de login** implementada no projeto, porém, **não possui aute
 - **Vite** (ambiente de desenvolvimento rápido e moderno)
 - **React Bootstrap** (para estilização e componentes responsivos)
 - **Recharts** (gráficos interativos)
-- **CSS Modules** (para estilos organizados e modulares)
 - **Hooks personalizados** (para reaproveitamento e organização do código)
 
 ---
