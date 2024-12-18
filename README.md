@@ -1,50 +1,82 @@
-# React + TypeScript + Vite
+# 🏥 Clínica Premium - Sistema de Agendamentos e Consultas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Sistema completo para gerenciamento de agendas médicas, consultas e alertas.** Este projeto foi desenvolvido com foco em responsividade, clean code e arquitetura organizada, proporcionando uma experiência intuitiva e moderna ao usuário.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 **Desafio**
 
-## Expanding the ESLint configuration
+O principal desafio deste projeto foi integrar de maneira eficiente **dados dinâmicos** em várias telas, simulando um sistema real de consultório médico. Trabalhamos com a implementação de agendamentos, consultas, gráficos de ganhos por modalidade, alertas e a capacidade de cadastrar novos compromissos diretamente.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Além disso, o sistema é **totalmente responsivo**, garantindo uma excelente experiência tanto em desktops quanto em dispositivos móveis.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 💻 **Sobre o Projeto**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+O projeto consiste em três telas principais:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Dashboard**:
+   - Apresenta gráficos de ganhos por modalidade e status de agendamentos.
+   - Mostra alertas personalizados por dia e lista de compromissos para o calendário selecionado.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. **Agendamentos**:
+   - Exibe os médicos cadastrados e suas agendas de atendimento.
+   - Permite cadastrar novos compromissos diretamente.
+
+3. **Consultas**:
+   - Lista os pacientes agendados, exibindo detalhes como médico, data, status e valor cobrado.
+   - Oferece filtros por status e funcionalidades de busca e edição.
+
+---
+
+## 🛠️ **Tecnologias Utilizadas**
+
+- **React** (com TypeScript)
+- **Vite** (ambiente de desenvolvimento rápido e moderno)
+- **React Bootstrap** (para estilização e componentes responsivos)
+- **Recharts** (gráficos interativos)
+- **CSS Modules** (para estilos organizados e modulares)
+- **Hooks personalizados** (para reaproveitamento e organização do código)
+
+---
+
+## 📚 **Bibliotecas Instaladas**
+
+- **react-router-dom**: Gerenciamento de rotas.
+- **react-bootstrap**: Componentes pré-estilizados.
+- **recharts**: Visualização de gráficos.
+- **classnames**: Manipulação dinâmica de classes CSS.
+
+---
+
+## 📦 **Como Rodar o Projeto**
+
+Siga os passos abaixo para clonar, instalar e rodar o projeto localmente.
+
+1. **Clonar o Repositório**
+
+2. **Instalar Dependências**
+
+3. **Iniciar o Servidor Local**
+
+4. **Acessar o Projeto**
+   - Abra o navegador e acesse: `http://localhost:5173`
+
+---
+
+## 🔗 **Conecte-se Comigo**
+
+Caso tenha gostado do projeto ou tenha interesse em colaborar, entre em contato comigo pelo LinkedIn:
+
+[**João Luiz Rocha**](https://www.linkedin.com/in/rochajoao/)
+
+---
+
+## 👨‍💻 **Conclusão**
+
+O projeto **Clínica Premium** simula de forma eficiente o fluxo diário de um consultório médico, com funcionalidades robustas para gerenciamento de agendas, consultas, alertas e visualização de dados. A arquitetura modular e o uso de tecnologias modernas como React, Vite e Recharts garantem um desempenho otimizado e uma interface amigável.
+
+Essa aplicação demonstra boas práticas de desenvolvimento, uso de **TypeScript** para segurança de código e **Hooks personalizados** para organização lógica. Ideal para apresentar como exemplo de **portfolio profissional** e demonstrar habilidades em **desenvolvimento front-end**.
+
+---
