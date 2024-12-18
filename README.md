@@ -20,19 +20,19 @@ O projeto consiste em três telas principais:
    - Apresenta gráficos de ganhos por modalidade e status de agendamentos.
    - Mostra alertas personalizados por dia e lista de compromissos para o calendário selecionado.
 
-![Dashboard](/src/assets/images/dashboard.png)
+<!-- ![Dashboard](/src/assets/images/dashboard.png) -->
 
 2. **Agendamentos**:
    - Exibe os médicos cadastrados e suas agendas de atendimento.
    - Permite cadastrar novos compromissos diretamente.
 
-![Agendamentos](/src/assets/images/agendamento.png)
+<!-- ![Agendamentos](/src/assets/images/agendamento.png) -->
 
 3. **Consultas**:
    - Lista os pacientes agendados, exibindo detalhes como médico, data, status e valor cobrado.
    - Oferece filtros por status e funcionalidades de busca e edição.
 
-![Consultas](/src/assets/images/consultas.png)
+<!-- ![Consultas](/src/assets/images/consultas.png) -->
 
 ---
 
