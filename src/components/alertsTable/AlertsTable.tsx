@@ -33,14 +33,14 @@ const AlertsTable: React.FC<AlertsTableProps> = ({ selectedDate }) => {
         padding: '1rem',
       }}
     >
-      <h6 style={{ textAlign: 'center', marginBottom: '1rem', color: '#002b5c' }}>
+      <h6 style={{ textAlign: 'center', marginBottom: '1rem', color: '#1E293B' }}>
         {selectedDate ? `Alertas para ${selectedDate}` : 'Selecione uma data'}
       </h6>
 
       <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr style={{ backgroundColor: '#002b5c', color: '#fff' }}>
+          <thead style={{backgroundColor: '#1E293B'}}>
+            <tr style={{ backgroundColor: '#1E293B', color: '#fff' }}>
               <th style={{ padding: '10px', borderRadius: '8px 0 0 0' }}>#</th>
               <th style={{ padding: '10px' }}>Descrição</th>
               <th style={{ padding: '10px', borderRadius: '0 8px 0 0', textAlign: 'center' }}>Concluído</th>

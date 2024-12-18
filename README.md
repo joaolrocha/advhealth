@@ -30,6 +30,14 @@ O projeto consiste em três telas principais:
 
 ---
 
+---
+
+### ⚠️ **Observação**
+
+Existe uma **tela de login** implementada no projeto, porém, **não possui autenticação real**. A tela foi criada com o objetivo de demonstrar a navegação inicial. Basta clicar no botão **Entrar** para ser redirecionado diretamente à **Dashboard**.
+
+---
+
 ## 🛠️ **Tecnologias Utilizadas**
 
 - **React** (com TypeScript)

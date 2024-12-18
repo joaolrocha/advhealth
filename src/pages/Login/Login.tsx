@@ -7,7 +7,6 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    alert('Error signing in'); // Placeholder de erro
     navigate('/dashboard'); // Redireciona para a Dashboard
   };
 

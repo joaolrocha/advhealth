@@ -30,14 +30,14 @@ const Header: React.FC = () => {
     >
       {/* Título */}
       <div>
-        <h5 style={{ margin: 0, fontWeight: 'bold', color: '#002b5c' }}>
+        <h5 style={{ margin: 0, fontWeight: 'bold', color: '#1E293B' }}>
           Bem-vindo!
         </h5>
       </div>
 
       {/* Informações do Usuário */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-        <span style={{ fontWeight: '500', color: '#002b5c' }}>
+        <span style={{ fontWeight: '500', color: '#1E293B' }}>
           {user.name}
         </span>
 
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
             width: '40px',
             height: '40px',
             borderRadius: '50%',
-            backgroundColor: '#002b5c',
+            backgroundColor: '#1E293B',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',

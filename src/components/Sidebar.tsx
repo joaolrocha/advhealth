@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
       style={{
         width: isCollapsed ? '80px' : '250px',
         height: '100vh',
-        backgroundColor: '#0f172a',
+        backgroundColor: '#1E293B',
         color: '#fff',
         display: 'flex',
         flexDirection: 'column',

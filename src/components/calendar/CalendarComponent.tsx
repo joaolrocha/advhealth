@@ -67,7 +67,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) =
           onClick={handlePrevMonth}
           style={{
             border: 'none',
-            background: '#002b5c',
+            background: '#1E293B',
             color: '#fff',
             padding: '5px 10px',
             cursor: 'pointer',
@@ -83,7 +83,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) =
           onClick={handleNextMonth}
           style={{
             border: 'none',
-            background: '#002b5c',
+            background: '#1E293B',
             color: '#fff',
             padding: '5px 10px',
             cursor: 'pointer',
@@ -105,7 +105,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ onDateSelect }) =
               style={{
                 border: 'none',
                 borderRadius: '5px',
-                backgroundColor: selectedDate === day.toString() ? '#002b5c' : '#e0e0e0',
+                backgroundColor: selectedDate === day.toString() ? '#1E293B' : '#e0e0e0',
                 color: selectedDate === day.toString() ? '#fff' : '#333',
                 padding: '8px',
                 cursor: 'pointer',
