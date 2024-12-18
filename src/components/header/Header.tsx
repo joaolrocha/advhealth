@@ -1,9 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   const user = {
     name: 'João Luiz',
     initials: 'JL',
@@ -15,6 +16,21 @@ const Header: React.FC = () => {
     navigate('/');
   };
 
+  // Função para mapear as rotas em nomes das páginas
+  const getPageTitle = (path: string): string => {
+    switch (path) {
+      case '/dashboard':
+        return 'Dashboard';
+      case '/schedule':
+        return 'Agendamentos';
+      case '/consultations':
+        return 'Consultas';
+      default:
+        return 'Página Inicial';
+    }
+  };
+
+  const pageTitle = getPageTitle(location.pathname);
 
   return (
     <div
@@ -31,7 +47,7 @@ const Header: React.FC = () => {
       {/* Título */}
       <div>
         <h5 style={{ margin: 0, fontWeight: 'bold', color: '#1E293B' }}>
-          Bem-vindo!
+        {pageTitle}
         </h5>
       </div>
 
